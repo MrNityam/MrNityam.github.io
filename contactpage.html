@@ -35,6 +35,22 @@
   <meta name="description" content="I am a Student web designer & front‑end developer focused on crafting clean & user‑friendly experiences. Code and Chatbot Never Lies" />
   <meta name="keywords" content="Chatbot and code , MrNityam, Mr Nityam." />
   <meta name="author" content="Nityam" />
+  <script>
+    function get_action(form) 
+{
+    var v = grecaptcha.getResponse();
+    if(v.length == 0)
+    {
+        document.getElementById('captcha').innerHTML="You can't leave Captcha Code empty";
+        return false;
+    }
+    else
+    {
+        document.getElementById('captcha').innerHTML="Captcha completed";
+        return true; 
+    }
+}
+  </script>
 </head>
 <body>
        <!--contact form starts----------------------------------->
