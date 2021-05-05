@@ -59,7 +59,7 @@
                     <div class="input-group">
                      <textarea name="message" placeholder="Message" class="input-control"></textarea>
                     </div>
-                    <div data-type="image" class="g-recaptcha" data-sitekey="6Le0w8YaAAAAAF63YnIG4WSVj9PvvDHurW8sDyvR"></div>
+                    <div class="g-recaptcha" data-sitekey="6Le0w8YaAAAAAF63YnIG4WSVj9PvvDHurW8sDyvR"></div>
                     <div class="input-group">
                       <button type="submit" class="btn btn-submit">Send</button>
                      </div>
@@ -69,7 +69,31 @@
             </div>
           </div>   
           
-          
+          <?php
+    $email; $comment; $captcha;
+
+    if(isset($_POST['email']))
+        $email=$_POST['email'];
+    if(isset($_POST['comment']))
+        $comment=$_POST['comment'];
+    if(isset($_POST['g-recaptcha-response']))
+        $captcha=$_POST['g-recaptcha-response'];
+
+    if(!$captcha){
+        echo '<h2>Please check the the captcha form.</h2>';
+        exit;
+    }
+
+    $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=YOUR SECRET KEY&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']), true);
+    if($response['success'] == false)
+    {
+        echo '<h2>You are spammer ! Get the @$%K out</h2>';
+    }
+    else
+    {
+        echo '<h2>Thanks for posting comment.</h2>';
+    }
+?>
 
 </script>
 
@@ -83,13 +107,7 @@
               .catch(error => console.error('Sorry! somethong went wrong. Please try again later.', error.message))
           })
 </script>
-<script>
-  if (grecaptcha.getResponse() == ""){
-    alert("You can't proceed!");
-} else {
-    alert("Thank you");
-}
-</script>
+
 
 <!--contact form ends-------------------------------------->
 </body>
