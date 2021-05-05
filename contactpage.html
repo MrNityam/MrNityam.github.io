@@ -52,6 +52,9 @@
                       <input type="text" name="subject" placeholder="Subject" class="input-control" required>
                     </div>
                     <div class="input-group">
+                      <input type="datetime-local" name="date" placeholder="Date And Time" class="input-control" required>
+                    </div>
+                    <div class="input-group">
                      <textarea name="message" placeholder="Message" class="input-control"></textarea>
                     </div>
                     <div class="input-group">
@@ -69,7 +72,7 @@
           form.addEventListener('submit', e => {
             e.preventDefault()
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-              .then(response => alert("Thanks for Contacting MrNityam. You will get reply ASAP on the Email provided by you ."))
+              .then(response => alert("Thanks for Contacting Nityam. You will get reply ASAP on the Email provided by you ."))
               .catch(error => console.error('Sorry! somethong went wrong. Please try again later.', error.message))
           })
 </script>
