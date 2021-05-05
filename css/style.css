@@ -18,6 +18,7 @@ global styles
     padding: 0;
     box-sizing: border-box;
     outline: none;
+    overscroll-behavior: smooth;
 }
 ::before,
 ::after{
@@ -52,8 +53,8 @@ h3,h4,h5,h6{
 h1,h2{
     font-size: 48px;
 }
-h6{
-    font-size: 100px;
+p{
+    font-size: 18px;
 }
 .container{
     max-width: 1170px;
@@ -526,9 +527,7 @@ h6{
     h1,h2{
         font-size: 30px;
     }
-    h6{
-        font-size: 60px;
-    }
+
 }
 @media(max-width:572px){
     
