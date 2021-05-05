@@ -82,7 +82,7 @@ button{
     font-weight: inherit;
 }
 .btn{
-    background-color: var(--main-color);
+    background-color: var(--dark-light);
     padding: 9px 25px;
     font-family: inherit;
     font-size: 16px;
