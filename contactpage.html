@@ -83,35 +83,6 @@
           })
 </script>
 
-<script type="text/javascript">
-  var anr_onloadCallback = function() {
-    for ( var i = 0; i < document.forms.length; i++ ) {
-      var form = document.forms[i];
-      var captcha_div = form.querySelector( '.anr_captcha_field_div' );
-
-      if ( null === captcha_div )
-        continue;
-      captcha_div.innerHTML = '';
-      ( function( form ) {
-        var anr_captcha = grecaptcha.render( captcha_div,{
-          'sitekey' : '6Ldn2acUAAAAAGjc_Ww2rHnOONSoexkl0-7ecl5O',
-          'size'  : 'normal',
-          'theme' : 'light'
-        });
-        if ( typeof jQuery !== 'undefined' ) {
-          jQuery( document.body ).on( 'checkout_error', function(){
-            grecaptcha.reset(anr_captcha);
-          });
-        }
-        if ( typeof wpcf7 !== 'undefined' ) {
-          document.addEventListener( 'wpcf7submit', function() {
-            grecaptcha.reset(anr_captcha);
-          }, false );
-        }
-      })(form);
-    }
-  };
-</script>
 <!--contact form ends-------------------------------------->
 </body>
 </html>
